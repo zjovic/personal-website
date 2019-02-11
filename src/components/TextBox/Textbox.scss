@@ -1,0 +1,196 @@
+.textBox {
+  width: 80%;
+  padding-bottom: 2em;
+
+  .greeting {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+
+    h1 {
+      opacity: 1;
+      transition: all 1s;
+      margin: 0 0 1em 0;
+    }
+
+    .invisible {
+      opacity: 0;
+    }
+  }
+
+  .mobile-greeting {
+    display: none;
+  }
+
+  .typerr-box {
+    min-height: 3em;
+    padding: 0 1.2em;
+    width: 100%;
+    border: $border;
+    border-radius: 0.4em;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+  }
+
+  .social {
+    @include flex-center;
+    margin: 2em 0 0 0;
+
+    ul {
+      @include list(true);
+      li {
+        margin-right: 1em;
+        border: $border;
+        border-radius: 0.4em;
+        margin-right: 1em;
+        width: 4em;
+        height: 4em;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        &:hover {
+          background-color: $color-main;
+        }
+
+        a {
+          @include flex-center;
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .cv {
+    @include flex-center;
+    margin-top: 2em;
+    a {
+      @include button;
+
+      &:hover {
+        background-color: $color-main;
+      }
+    }
+  }
+}
+
+//BLINKING CURSOR //
+.blinking-cursor {
+  font-size: 1.2em;
+  font-weight: 100;
+  -webkit-animation: 0.8s blink step-end infinite;
+  -moz-animation: 0.8s blink step-end infinite;
+  -ms-animation: 0.8s blink step-end infinite;
+  -o-animation: 0.8s blink step-end infinite;
+  animation: 0.8s blink step-end infinite;
+  color: $color-white;
+}
+
+@keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: $color-white;
+  }
+}
+
+@-moz-keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: $color-white;
+  }
+}
+
+@-webkit-keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: $color-white;
+  }
+}
+
+@-ms-keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: $color-white;
+  }
+}
+
+@-o-keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: $color-white;
+  }
+}
+
+@media only screen and (max-width: 1365px) {
+  .textBox {
+    .greeting {
+      font-size: 0.8em;
+    }
+    .typerr-box {
+      height: 4em;
+      font-size: 0.9em;
+    }
+
+    .social {
+      ul {
+        li {
+          width: 3em;
+          height: 3em;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .textBox {
+    padding-bottom: 1em;
+    .greeting {
+      display: none;
+    }
+
+    .typerr-box {
+      display: none;
+    }
+
+    .mobile-greeting {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: auto;
+    }
+    .cv {
+      a {
+        font-size: 1em;
+        &:hover {
+          background-color: $color-main;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .textBox {
+    width: 90%;
+    font-size: 0.9em;
+  }
+}

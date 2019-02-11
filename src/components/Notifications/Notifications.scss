@@ -1,0 +1,93 @@
+#notification-area {
+  max-height: 100%;
+  min-width: 250px;
+  max-width: 400px;
+  position: fixed;
+  bottom: 100px;
+  right: 2em;
+
+  &:focus {
+    outline: 0;
+  }
+
+  .notification-box {
+    background: $color-main;
+    padding: 1em;
+    margin: 0 0 0.8em 0;
+    position: relative;
+    border-radius: 5px;
+    transition: opacity 0.5s ease-in;
+    display: flex;
+    border-radius: 0.4em;
+    line-height: 1.6em;
+
+    &.hide {
+      opacity: 0;
+    }
+
+    .notification-content {
+      padding-right: 1em;
+
+      .download-button {
+        @include flex-center;
+        margin-top: 1em;
+        border: $border;
+        padding: 0.2em;
+        border-radius: 0.4em;
+        background-color: $color-main;
+
+        &:hover {
+          background-color: $color-dark;
+        }
+
+        a {
+          @include flex-center;
+          width: 100%;
+        }
+      }
+    }
+
+    .notification-close {
+      background: transparent;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      //CLOSE NOTIFICATION "X"//
+      &:before,
+      &:after {
+        content: "";
+        width: 15px;
+        border-top: solid 2px $color-white;
+        position: absolute;
+        top: 5px;
+        right: -1px;
+        display: block;
+      }
+
+      &:before {
+        transform: rotate(45deg);
+      }
+
+      &:after {
+        transform: rotate(135deg);
+      }
+
+      &:hover:before,
+      &:hover:after {
+        border-top: solid 2px $color-dark;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #notification-area {
+    bottom: 10px;
+    width: 400px;
+    left: 50%;
+    margin-left: -200px;
+  }
+}

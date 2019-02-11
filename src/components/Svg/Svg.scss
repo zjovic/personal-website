@@ -1,0 +1,18 @@
+.icon-container {
+  @include flex-center;
+}
+
+svg {
+  stroke: $color-white;
+}
+
+.double-size {
+  height: 42px;
+  width: 42px;
+}
+
+.is-active.router-link-active {
+  .double-size {
+    stroke: $color-dark;
+  }
+}

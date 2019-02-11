@@ -1,0 +1,138 @@
+nav {
+  background-color: $color-main;
+  position: absolute;
+  top: 0;
+  right: 1em;
+  width: 400px;
+  height: auto;
+  border-radius: 0 0 0.4em 0.4em;
+  cursor: pointer;
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  transform: translate(0, -500px);
+  transition: all 0.8s;
+  z-index: 999;
+
+  .top {
+    height: 100px;
+    border-bottom: 1px solid $color-dark;
+    display: flex;
+    justify-content: space-between;
+
+    & .is-active {
+      color: $color-dark;
+      background-color: $color-background-highlight;
+    }
+
+    .home {
+      @include flex-center;
+      width: 300px;
+      font-size: 0.7em;
+    }
+
+    .close {
+      width: 100px;
+      @include flex-center;
+      border-left: 1px solid $color-dark;
+    }
+
+    .overlay {
+      height: 100%;
+      display: flex;
+
+      &:hover {
+        background-color: $color-background-highlight;
+      }
+    }
+  }
+
+  .bottom {
+    ul {
+      @include list(true);
+
+      li {
+        width: 200px;
+        height: 200px;
+
+        &:hover {
+          background-color: $color-background-highlight;
+        }
+
+        &:nth-of-type(1) {
+          border-right: 1px solid $color-dark;
+          border-bottom: 1px solid $color-dark;
+        }
+
+        &:nth-of-type(2) {
+          border-bottom: 1px solid $color-dark;
+        }
+
+        &:nth-of-type(3) {
+          border-right: 1px solid $color-dark;
+
+          &:hover {
+            border-radius: 0 0 0 0.4em;
+          }
+
+          & .is-active {
+            border-radius: 0 0 0 0.4em;
+          }
+        }
+
+        &:nth-of-type(4):hover {
+          border-radius: 0 0 0.4em 0;
+
+          & .is-active {
+            border-radius: 0 0 0.4em 0;
+          }
+        }
+
+        span {
+          margin-top: 0.4em;
+        }
+
+        .nav-link {
+          @include flex-center;
+          height: 100%;
+          flex-direction: column;
+
+          //SVG ACTIVE STROKE COLOR EDITED IN MAIN SVG.SCSS
+          &.is-active {
+            background-color: $color-background-highlight;
+            span {
+              color: $color-dark;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.open {
+  transform: translate(0, 0);
+}
+
+@media only screen and (max-width: 900px) {
+  nav {
+    width: 340px;
+    font-size: 1.5em;
+    right: 0.5em;
+
+    .top {
+      .home {
+        width: 252px;
+      }
+    }
+    .bottom {
+      ul {
+        li {
+          width: 170px;
+          height: 170px;
+        }
+      }
+    }
+  }
+}
