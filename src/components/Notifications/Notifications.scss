@@ -5,6 +5,7 @@
   position: fixed;
   bottom: 100px;
   right: 2em;
+  z-index: 3;
 
   &:focus {
     outline: 0;
@@ -89,5 +90,14 @@
     width: 400px;
     left: 50%;
     margin-left: -200px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #notification-area {
+    bottom: 10px;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
   }
 }
